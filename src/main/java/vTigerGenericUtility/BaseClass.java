@@ -50,19 +50,18 @@ public class BaseClass {
 	{
 		String BROWSER = putil.readDataFromProperties("browser");
 		String URL = putil.readDataFromProperties("url");
-		if(BROWSER.equalsIgnoreCase("chrome"))
-		{
-		   ChromeOptions option = new ChromeOptions();
-		   option.addArguments("--remote-allow-origins=*");
-			//System.setProperty("webdriver.edge.driver", "D:\\selenium folder\\msedgedriver.exe");
-			driver = new ChromeDriver(option);
-			System.out.println("----"+BROWSER+ "launched successfully");
-		}
-		else if(BROWSER.equalsIgnoreCase("edge"))
+		if(BROWSER.equalsIgnoreCase("edge"))
 		{
 			//WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			System.out.println("---"+BROWSER+ " Launched successfully");
+		}
+		else if(BROWSER.equalsIgnoreCase("chrome"))
+		{
+			ChromeOptions option = new ChromeOptions();
+			   option.addArguments("--remote-allow-origins=*");
+				driver = new ChromeDriver(option);
+				System.out.println("----"+BROWSER+ "launched successfully");
 		}
 		else
 		{
